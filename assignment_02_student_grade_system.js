@@ -50,3 +50,42 @@
 // =============================================================================
 
 
+
+
+// PROGRAMMING FUNDAMENTALS - Assignment 2
+// TASK: Student Grade System
+
+const readline = require('readline-sync');
+
+// Function to get the letter grade
+function getGrade(score) {
+    if (score >= 80 && score <= 100) {
+        return 'A';
+    } else if (score >= 70 && score <= 79) {
+        return 'B';
+    } else if (score >= 60 && score <= 69) {
+        return 'C';
+    } else if (score >= 50 && score <= 59) {
+        return 'D';
+    } else if (score >= 0 && score < 50) {
+        return 'F';
+    } else {
+        return null; // invalid score
+    }
+}
+
+// Main function
+function main() {
+    let input = readline.question('Enter student score (0-100): ');
+    let score = Number(input);
+
+    let grade = getGrade(score);
+
+    if (grade === null) {
+        console.log('ERROR: Score must be between 0 and 100.');
+    } else {
+        console.log(`Grade: ${grade}`);
+    }
+}
+
+main();
