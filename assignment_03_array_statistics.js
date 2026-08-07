@@ -44,3 +44,71 @@
 // =============================================================================
 
 
+
+
+const readline = require('readline-sync');
+
+// Function to calculate sum
+function calculateSum(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum = sum + numbers[i];
+    }
+    return sum;
+}
+
+// Function to calculate average
+function calculateAverage(numbers) {
+    let sum = calculateSum(numbers);
+    return sum / numbers.length;
+}
+
+// Function to find maximum
+function findMaximum(numbers) {
+    let max = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    return max;
+}
+
+// Function to find minimum
+function findMinimum(numbers) {
+    let min = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] < min) {
+            min = numbers[i];
+        }
+    }
+    return min;
+}
+
+// Main program
+function main() {
+    let n = readline.questionInt('How many numbers? ');
+    
+    // Check if N is positive
+    if (n <= 0) {
+        console.log('Error: N must be a positive integer.');
+        return;
+    }
+    
+    let numbers = [];
+    
+    // Read N numbers
+    for (let i = 0; i < n; i++) {
+        let num = readline.questionFloat(`Enter number ${i + 1}: `);
+        numbers.push(num);
+    }
+    
+    // Calculate and display results
+    console.log('\nResults:');
+    console.log('Sum: ' + calculateSum(numbers));
+    console.log('Average: ' + calculateAverage(numbers));
+    console.log('Maximum: ' + findMaximum(numbers));
+    console.log('Minimum: ' + findMinimum(numbers));
+}
+
+main();
