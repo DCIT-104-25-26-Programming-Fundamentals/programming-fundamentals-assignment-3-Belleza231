@@ -15,7 +15,7 @@
 // 1. Install the input library (only once):  npm install readline-sync
 // 2. Run the program:                        node assignment_01_prime_checker.js
 //
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------G
 // EXPECTED INPUT / OUTPUT EXAMPLES
 // -----------------------------------------------------------------------------
 //
@@ -43,3 +43,35 @@
 // =============================================================================
 
 
+
+
+const readlineSync = require("readline-sync");
+
+// Function to check if a number is prime
+function isPrime(number) {
+    if (number < 2) {
+        return false;
+    }
+
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+            return false;
+        }
+    }G
+
+    return true;
+}
+
+// Main function
+function main() {
+    let number = readlineSync.questionInt("Enter a number: ");
+
+    if (isPrime(number)) {
+        console.log(number + " is a prime number.");
+    } else {
+        console.log(number + " is NOT a prime number.");
+    }
+}
+
+// Call the main function
+main();
